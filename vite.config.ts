@@ -1,13 +1,26 @@
-import { defineConfig } from "@lovable.dev/vite-tanstack-config";
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import { tanstackRouter } from "@tanstack/router-plugin/vite";
+import tsconfigPaths from "vite-tsconfig-paths";
+import path from "path";
 
-// TanStack Start configuration for Vercel
+// https://vitejs.dev/config/
 export default defineConfig({
-  tanstackStart: {
-    server: { entry: "server" },
-  },
-  vite: {
-    ssr: {
-      noExternal: true,
+  plugins: [
+    tanstackRouter({
+      target: "react-spa",
+      autoCodeSplitting: true,
+    }),
+    react(),
+    tsconfigPaths(),
+  ],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
     },
+  },
+  build: {
+    outDir: "dist",
+    emptyOutDir: true,
   },
 });
