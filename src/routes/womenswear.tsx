@@ -18,7 +18,7 @@ export const Route = createFileRoute("/womenswear")({
 });
 
 const looks = [
-  { src: hero, name: "Aurore", note: "Robe de salon, dentelle blush" },
+  { src: hero, name: "Aurore", note: "LE CAFÉ" },
   { src: womenswear, name: "Versailles", note: "Robe Toile de Jouy, soie royale" },
   { src: lace, name: "Pearl", note: "Bustier perlé, ivoire" },
   { src: portrait, name: "Cherie", note: "Voile et perles, rouge" },
