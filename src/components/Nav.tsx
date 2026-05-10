@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import logo from "../assets/logo.png";
 
 const items = [
   { to: "/", label: "Maison" },
@@ -24,8 +25,11 @@ export function Nav() {
     <>
       <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-700 ${scrolled ? "bg-[var(--ivory)]/80 backdrop-blur-md" : "bg-transparent"}`}>
         <div className="flex items-center justify-between px-6 py-6 md:px-12">
-          <Link to="/" className="font-display text-sm tracking-couture uppercase">
-            Maison <span className="italic font-light">des</span> Compagnes
+          <Link to="/" className="flex items-center gap-3">
+            <img src={logo} alt="Maison des Compagnes" className="h-8 w-auto" />
+            <span className="hidden sm:block font-display text-sm tracking-couture uppercase">
+              Maison <span className="italic font-light">des</span> Compagnes
+            </span>
           </Link>
           <nav className="hidden md:flex items-center gap-10 text-[11px] uppercase tracking-editorial">
             {items.slice(1).map((i) => (
